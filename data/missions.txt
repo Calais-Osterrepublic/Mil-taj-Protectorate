@@ -781,61 +781,7 @@ mission "Mil Prisoner Exchange 1"
 			label decline
 			`	"This is an outcome I had hoped I would not have to report. I will tell my superiors of your decision, farewell human." Its feathers wilt as they turn and leave before you can reply.`
 				decline
-	on enter "Novae"
-		conversation
-			`You see a message pop up on your console, a crew member informs you one of the Quarg wishes to talk with you.`
-			choice
-				`	"The Quarg can stay quite in their cells, don't bother me about this again."`
-					decline
-				`	"Send them up, I can spare a few minutes."`
-			`	The Quarg that enters is on the larger side, struggling to get through the doorway and having to sit upon entering, "Captain, I am the representative of all the Quarg you currently hold captive. As our jailor, I must ask what you intend to do with us, now that we have been taken from the Mil'taj prisons."`
-			choice
-				`	"I'm exchanging you for Mil'taj prisoners, you will be home soon."`
-					goto continue
-				`	"I'm going to drop you all into deep space."`
-					goto shock
-			label continue
-			`	It thinks for a long time, before looking at you with an intense stare, "Do you believe the Mil'taj deserve to be free, after all they have done?"`
-			choice
-				`	"Yes, and more than you, so don't ask that again. You can leave now."`
-					decline
-				`	"Yes, no one deserves to be imprisoned."`
-					goto understandable
-				`	"No, but it's not my place to decide that."`
-					goto understandable
-				`	"No and I hate that I have to free those creatures."`
-			`	It's skin ripples pink, "We are of a mind then."`
-			label decision
-			`	"We request you do not conduct this transfer, simply drop us on Dupelepe and leave, the idea of Mil'taj being freed for our lives, would leave us wishing death was given when we failed on our mission. We will ensure you are rewarded for this act, and undoubtedly you will be counted as a friend of the Quarg for the danger you will be taking on to do this."`
-			choice
-				`	"No, no I can't, I dislike the Mil'taj but not enough to sign my own death warrant by betraying them like this. I'm sorry."`
-					decline
-				`	"I've been thinking of doing that myself, the Quarg haven't done me any wrong while the Mil'taj tried to kill me before, I'll do it!"`
-				`	"I was planning on betraying them anyway, this seems like a fine way to do it.`
-			action
-				fail
-			`	The Quarg reaches a hand out for a handshake, before standing to tell the others of your decision, "Thank you for choosing the correct choice captain, we hope the flight will be swift."`
-			label understandable
-			`	"That is an understandable stance, admirable even, but you must know the story of our situation. We were captured on a simple research mission, underestimated the Mil'taj's protectiveness of one ruined planet, tortured and killed in experiments using abominable machines. Our current number is a mere tenth of what it was upon our capture."`
-				goto decision
-			label shock
-			`	The Quarg seems in shock at your response, it's skin rippling black, "What sort of madman are you, you would make an enemy of both the Quarg and Mil'taj, for no discernible reason?!"`
-			choice
-				`	"Wait no I was joking, sorry. I'm just transporting you for a prisoner exchange."`
-					goto continue
-				`	"Honestly, I just hate both species, crew take this one back to their cell and don't let them see the others. Actually, just kill it and take the rest to the loading bay, might as well do this now!"`
-					goto madness
-			label madness
-			action
-				fail
-				"reputation: Mil'taj" <?= -1000
-				"reputation: Mil'taj Subjects" <?= -1000
-				"reputation: Quarg" <?= -1000
-				"reputation: Quarg (Hai)" <?= -1000
-				"reputation: Quarg (Kor Efret)" <?= -1000
-				"reputation: Quarg (Gegno)" <?= -1000
-			`	The looks of terror you see on each Quargs face as you jettison them into the vacuum of space is pleasing, perhaps now these old ignorant bastards will take you seriously as a threat.`
-			`	A crew member rushes to inform you of the Quarg craft in system powering their weapons as they pick up the dying life signs of their kin. You wanted a fight, time to have it. This should be fun!`
+# In the original, which should be still available, there would be an option mid-mission that would allow you to betray the Mil'taj. I'm not knowledgeable in how to make plugins though, so I'm cutting it all.
 
 mission "Mil Prisoner Exchange 1B"
 	landing
@@ -850,21 +796,13 @@ mission "Mil Prisoner Exchange 1B"
 	on offer
 		conversation
 			`The world of <origin> is not exactly a place you can call comfortable, but it suits the Quarg just fine. As soon as you land a group of armoured Quarg are waiting at the bottom of your landing ramp. "Captain, we received word of the exchange, once we determine the prisoners are safe we will allow you to take the Mil'taj."`
-			branch "quarg free"
-				not "Mil Prisoner Exchange 1: failed"
 			`	The Quarg work quick, making sure the prisoners are all accounted for before signalling for the Mil'taji to be brought. Hundreds of restrained Mil'taj are brought to your ship while the Quarg and offloaded. None look malnourished nor mistreated, but the colours the Quarg turn indicate they are not happy to see them go free.`
 			choice
 				`	"Well our business is done, time to go get paid."`
 					accept
 				`	"Your people are safe, you should be happy."`
-				`	"Finally I can go."`
-					accept
 			`	The nearest Quarg turns to you, "Are you happy when the killer of your family is freed so another of your family is not slain as well?" The Quarg soon indicate you are to leave, it's best to go while they are honouring your neutrality.`
-				accept
-			label "quarg free"
-			action
-				fail
-			`	The Quarg are confused initially when the prisoners leave your ship unbound. But once the leader of the prisoners begins talking, they all seem to understand what happened. "Thank you Captain, I hope no trouble is brought to your travels from your aid of our peoples."`
+			accept
 	npc
 		system "Novae"
 		government "Quarg"
@@ -884,29 +822,7 @@ mission "Mil Prisoner Exchange 1B"
 		"reputation: Mil'taj" <?= -1000
 		"reputation: Mil'taj Subjects" <?= -1000
 
-mission "Mil Prisoner Exchange 1C"
-	landing
-	name "Rogue Avendri Saved"
-	description "You betrayed the Mil'taj by freeing the Quarg prisoners, they are unlikely to let you get away with this."
-	source
-		attributes "near mil'taj"
-	to offer
-		has "Mil Prisoner Exchange 1B: failed"
-		not "Mil Prisoner Exchange 1: failed"
-	on offer
-		"reputation: Quarg" += 5
-		"reputation: Quarg (Hai)" += 5
-		"reputation: Quarg (Kor Efret)" += 5
-		"reputation: Quarg (Gegno)" += 5
-	npc kill
-		government "Mil'taj"
-		personality target heroic opportunistic vindictive unconstrained
-		system "Mil'taj Toh"
-		fleet "Mil'taj Raid"
-		dialog `	A short message is received from the Quarg you dropped off, "Captain <last>, you have our thanks for returning us to our home, we hope this payment sooths whatever damage the Mil'taj inflicted upon you."`
-		on kill
-			payment 4000000
-			fail
+
 
 mission "Mil'taj Failure A"
 	invisible
