@@ -1,20 +1,17 @@
-# Mil'taj Protectorate
-Hi I am the original author of the Amalgamation plugin, while I have gotten back into Endless Sky recently my ideas of polish have changed greatly over these 4 years.
+# Mil'taj Protectorate: Calais Fork
+Hi I am NOT the original author of the Amalgamation plugin!
 
-I decided that while I wasn't satisfied with Amalgamation as a whole, but a race of aliens from the plugin Shields up were still interesting to me, and something I wanted in the game all these years later.
+This plugin is initially meant to allow me to see the rest of the Mil'taj storyline, since I was observing an issue with going through the Prisoner missions.
 
-This is my attempt to morph the Mil'taj into their own fully functional developed race, with a simple opening mission chain and plenty of lore.
+In summary, the Prisoner exchange mission had a looping conversation point where there wasn't supposed to be, and the mod never allowed me to finish the Mil'taj storyline because the mod always registered "free quarg" where it shouldn't have.
 
-It is recommended to avoid the Mil'taj storyline until you can at least defeat a Wardragon, otherwise you will have a bad time.
+Currently, the solution is very crude due to my lack of knowledge on Endless Sky and its plugins. I've hardly figured out how to wrangle Github.
 
-ATM you can choose to either align yourself with the Mil'taj against the Quarg, or make them an enemy. I do not plan to ever have a Quarg side to the campaign, they just want you to piss off.
+So yes, my approach is very amateurish, and I wish to not diminish the original author's attempts.
 
+Still, I will leave in the "recommended links" seen below. 
 
-Currently something I cannot do myself is art. So the mil'taj licences are just wanderer licences until I can get custom ones.
-
-For the rest of the plugin all art assets are taken from dead plugins that years ago I worked on updating to the then current game version.
-
-The idealised goal would be to replace them all with custom assets just for this plugin, but I doubt that will happen, so I'm mainly hoping someone will be interested in adding their own custom made Mil'taj licences for the plugin.
+Thank you for your time.
 
 Reccomended Plugins:
 
